@@ -1,0 +1,8 @@
+prefix=/home/schwarm/tb3_aprilTag/catkin_ws/install
+
+Name: turtlebot3_navigation
+Description: Description of turtlebot3_navigation
+Version: 0.1.6
+Cflags: 
+Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/install/lib 
+Requires: 

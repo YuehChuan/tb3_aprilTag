@@ -1,0 +1,124 @@
+<launch>
+
+    <arg name="cam1" default="rapyuta01"/>
+    <arg name="cam2" default="rapyuta02"/>
+    <arg name="cam3" default="rapyuta03"/>
+    
+    <!-- camera1: rapyuta01-->
+    <group ns="$(arg cam1)">
+    <!-- Machine Definition-->  
+    <machine name="rapyuta01" address="192.168.1.101" user="ubuntu" default="true" ssh-port ="22" env-loader="/home/ubuntu/rapyuta/environment.sh" timeout="20" />
+    <!--camera node-->    
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+         <param name="video_device" value="/dev/video0" />
+         <param name="camera_info_url" value="package://usb_cam/camera_info/head_camera.yaml"/>
+         <param name="image_width" value="640" />
+         <param name="image_height" value="480" />
+         <param name="pixel_format" value="yuyv" />
+         <param name="camera_frame_id" value="usb_cam" />
+         <param name="io_method" value="mmap"/>
+       </node>
+   <!--apriltags detection node -->
+     <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
+         <param name="~default_tag_size" value="0.06" />
+     
+         <param name="~viewer" value="false" />
+         <param name="~publish_detections_image" value="false" />
+     
+         <param name="~display_type" value="CUBE" />
+         <param name="~marker_thickness" value="0.02" />
+     
+         <rosparam command="delete" param="tag_data" />
+         <rosparam param="tag_data">
+           "1": 
+             size: 0.06
+           "2":
+             size: 0.06
+         </rosparam>
+     
+         <remap from="~image" to="/$(arg cam1)/usb_cam/image_raw"/>
+         <remap from="~camera_info" to="/$(arg cam1)/usb_cam/camera_info"/>
+         <remap from="~marker_array" to="/$(arg cam1)/usb_cam/apriltags/marker_array"/>
+         <remap from="~detections" to="/$(arg cam1)/usb_cam/apriltags/detections"/>
+       </node> 
+    </group>
+
+    <!-- camera2: rapyuta02-->
+    <group ns="$(arg cam2)">
+    <!-- Machine Definition-->  
+    <machine name="rapyuta02" address="192.168.1.102" user="ubuntu" default="true" ssh-port ="22" env-loader="/home/ubuntu/rapyuta/environment.sh" timeout="20" />
+    <!--camera node-->    
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+         <param name="video_device" value="/dev/video0" />
+         <param name="camera_info_url" value="package://usb_cam/camera_info/head_camera.yaml"/>
+         <param name="image_width" value="640" />
+         <param name="image_height" value="480" />
+         <param name="pixel_format" value="yuyv" />
+         <param name="camera_frame_id" value="usb_cam" />
+         <param name="io_method" value="mmap"/>
+       </node>
+   <!--apriltags detection node -->
+     <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
+         <param name="~default_tag_size" value="0.06" />
+     
+         <param name="~viewer" value="false" />
+         <param name="~publish_detections_image" value="false" />
+     
+         <param name="~display_type" value="CUBE" />
+         <param name="~marker_thickness" value="0.02" />
+     
+         <rosparam command="delete" param="tag_data" />
+         <rosparam param="tag_data">
+           "1": 
+             size: 0.06
+           "2":
+             size: 0.06
+         </rosparam>
+     
+         <remap from="~image" to="/$(arg cam2)/usb_cam/image_raw"/>
+         <remap from="~camera_info" to="/$(arg cam2)/usb_cam/camera_info"/>
+         <remap from="~marker_array" to="/$(arg cam2)/usb_cam/apriltags/marker_array"/>
+         <remap from="~detections" to="/$(arg cam2)/usb_cam/apriltags/detections"/>
+       </node> 
+    </group>
+
+    <!-- camera3: rapyuta03-->
+    <group ns="$(arg cam3)">
+    <!-- Machine Definition-->  
+    <machine name="rapyuta03" address="192.168.1.104" user="ubuntu" default="true" ssh-port ="22" env-loader="/home/ubuntu/rapyuta/environment.sh" timeout="20" />
+    <!--camera node-->    
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+         <param name="video_device" value="/dev/video0" />
+         <param name="camera_info_url" value="package://usb_cam/camera_info/head_camera.yaml"/>
+         <param name="image_width" value="640" />
+         <param name="image_height" value="480" />
+         <param name="pixel_format" value="yuyv" />
+         <param name="camera_frame_id" value="usb_cam" />
+         <param name="io_method" value="mmap"/>
+       </node>
+   <!--apriltags detection node -->
+     <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
+         <param name="~default_tag_size" value="0.06" />
+     
+         <param name="~viewer" value="false" />
+         <param name="~publish_detections_image" value="false" />
+     
+         <param name="~display_type" value="CUBE" />
+         <param name="~marker_thickness" value="0.02" />
+     
+         <rosparam command="delete" param="tag_data" />
+         <rosparam param="tag_data">
+           "1": 
+             size: 0.06
+           "2":
+             size: 0.06
+         </rosparam>
+     
+         <remap from="~image" to="/$(arg cam3)/usb_cam/image_raw"/>
+         <remap from="~camera_info" to="/$(arg cam3)/usb_cam/camera_info"/>
+         <remap from="~marker_array" to="/$(arg cam3)/usb_cam/apriltags/marker_array"/>
+         <remap from="~detections" to="/$(arg cam3)/usb_cam/apriltags/detections"/>
+       </node>
+    </group>
+        
+</launch>

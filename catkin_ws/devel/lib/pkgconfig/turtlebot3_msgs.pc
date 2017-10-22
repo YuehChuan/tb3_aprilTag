@@ -1,0 +1,8 @@
+prefix=/home/schwarm/tb3_aprilTag/catkin_ws/devel
+
+Name: turtlebot3_msgs
+Description: Description of turtlebot3_msgs
+Version: 0.1.3
+Cflags: -I/home/schwarm/tb3_aprilTag/catkin_ws/devel/include
+Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/devel/lib 
+Requires: std_msgs sensor_msgs std_srvs message_runtime

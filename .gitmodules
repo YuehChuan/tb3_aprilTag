@@ -1,0 +1,12 @@
+[submodule "catkin_ws/src/usb_cam"]
+	path = catkin_ws/src/usb_cam
+    url = https://github.com/ros-drivers/usb_cam.git
+[submodule "catkin_ws/src/turtlebot3_simulations"]
+	path = catkin_ws/src/turtlebot3_simulations
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+[submodule "catkin_ws/src/turtlebot3"]
+	path = catkin_ws/src/turtlebot3
+	url = https://github.com/ROBOTIS-GIT/turtlebot3
+[submodule "catkin_ws/src/turtlebot3_msgs"]
+	path = catkin_ws/src/turtlebot3_msgs
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
