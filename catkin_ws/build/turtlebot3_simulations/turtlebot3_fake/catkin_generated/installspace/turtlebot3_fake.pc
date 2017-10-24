@@ -1,0 +1,8 @@
+prefix=/home/schwarm/tb3_aprilTag/catkin_ws/install
+
+Name: turtlebot3_fake
+Description: Description of turtlebot3_fake
+Version: 0.1.7
+Cflags: -I/home/schwarm/tb3_aprilTag/catkin_ws/install/include
+Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/install/lib -lturtlebot3_fake_node
+Requires: geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf turtlebot3_msgs

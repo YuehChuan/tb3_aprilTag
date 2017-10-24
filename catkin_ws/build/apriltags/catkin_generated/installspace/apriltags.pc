@@ -1,0 +1,8 @@
+prefix=/home/schwarm/tb3_aprilTag/catkin_ws/install
+
+Name: apriltags
+Description: Description of apriltags
+Version: 0.0.2
+Cflags: -I/home/schwarm/tb3_aprilTag/catkin_ws/install/include
+Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/install/lib 
+Requires: cv_bridge std_msgs sensor_msgs image_transport roscpp geometry_msgs

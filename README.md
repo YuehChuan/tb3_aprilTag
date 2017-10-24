@@ -4,6 +4,9 @@ This is the main software repository for the turtlebot3 simulation.
 
 - For extensive technical documentation, please refer to [aprilTag](bit.ly/yc-ros-20171022)
 
+
+[![tb3_aprilTag](https://github.com/xenobot-dev/apriltags_ros/blob/master/software/apriltags_launch.png)](bit.ly/yc-ros-20171022)
+
 Notice
 =======
 You should git pull everytime before you push a new commit!
@@ -18,17 +21,14 @@ git clone https://github.com/YuehChuan/tb3_aprilTag.git
 
 To compile the code, 
 
-```
+```bash=
 cd ~/tb3_aprilTag
-
 catkin_make
-
 cd ..
-
 source environment.sh
 ```
 
-For aprilTag, make for you comile the share libray follow  these steps:
+For aprilTag, make sure you have comiled shared library follow these steps:
 
 ```
 cd apriltags_ros/software/apriltags-cpp

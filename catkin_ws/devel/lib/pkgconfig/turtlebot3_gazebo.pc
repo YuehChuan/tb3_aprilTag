@@ -1,0 +1,8 @@
+prefix=/home/schwarm/tb3_aprilTag/catkin_ws/devel
+
+Name: turtlebot3_gazebo
+Description: Description of turtlebot3_gazebo
+Version: 0.1.7
+Cflags: -I/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include
+Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/devel/lib -lturtlebot3_gazebo
+Requires: geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf gazebo_ros
