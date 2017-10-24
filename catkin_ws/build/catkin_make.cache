@@ -1,2 +1,0 @@
-apriltags:rapyuta_msgs:tags_sub:turtlebot3/turtlebot3:turtlebot3/turtlebot3_bringup:turtlebot3/turtlebot3_description:turtlebot3/turtlebot3_navigation:turtlebot3/turtlebot3_slam:turtlebot3/turtlebot3_teleop:turtlebot3_msgs:turtlebot3_simulations/turtlebot3_fake:turtlebot3_simulations/turtlebot3_gazebo:turtlebot3_simulations/turtlebot3_simulations:usb_cam
--DCATKIN_DEVEL_PREFIX=/home/schwarm/tb3_aprilTag/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/schwarm/tb3_aprilTag/catkin_ws/install -G Unix Makefiles

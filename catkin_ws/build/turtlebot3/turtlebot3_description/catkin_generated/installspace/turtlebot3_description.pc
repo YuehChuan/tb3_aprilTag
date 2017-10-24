@@ -1,8 +1,0 @@
-prefix=/home/schwarm/tb3_aprilTag/catkin_ws/install
-
-Name: turtlebot3_description
-Description: Description of turtlebot3_description
-Version: 0.1.6
-Cflags: 
-Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/install/lib 
-Requires: 

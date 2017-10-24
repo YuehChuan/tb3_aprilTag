@@ -5,7 +5,7 @@ This is the main software repository for the turtlebot3 simulation.
 - For extensive technical documentation, please refer to [aprilTag](bit.ly/yc-ros-20171022)
 
 
-[![tb3_aprilTag](https://github.com/xenobot-dev/apriltags_ros/blob/master/software/apriltags_launch.png)](bit.ly/yc-ros-20171022)
+[![tb3_gazebo](https://github.com/YuehChuan/tb3_aprilTag/blob/master/misc/tb3_gazebo.png)](bit.ly/yc-ros-20171022)
 
 Notice
 =======
@@ -199,6 +199,9 @@ roslaunch apriltags gazebo_cam_apriltags.launch
 ```
 
 see virtual aprilTag detection
+
+[![aprilTag_detect](https://github.com/YuehChuan/tb3_aprilTag/blob/master/misc/aprilTag_detect.png)](bit.ly/yc-ros-20171022)
+
 **terminal 3**
 
 ```bash=

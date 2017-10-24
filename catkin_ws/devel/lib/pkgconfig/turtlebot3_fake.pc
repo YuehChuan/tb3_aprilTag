@@ -1,8 +1,0 @@
-prefix=/home/schwarm/tb3_aprilTag/catkin_ws/devel
-
-Name: turtlebot3_fake
-Description: Description of turtlebot3_fake
-Version: 0.1.7
-Cflags: -I/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include
-Libs: -L/home/schwarm/tb3_aprilTag/catkin_ws/devel/lib -lturtlebot3_fake_node
-Requires: geometry_msgs nav_msgs roscpp sensor_msgs std_msgs tf turtlebot3_msgs
