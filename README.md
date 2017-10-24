@@ -15,7 +15,7 @@ Building
 ========
 pass: ubuntu 16.04.2
 ROS version: kinetic
-
+Gazebo 8
 git clone https://github.com/YuehChuan/tb3_aprilTag.git
 
 To compile the code, 
