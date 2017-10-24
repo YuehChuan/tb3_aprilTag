@@ -30,7 +30,7 @@ source environment.sh
 For aprilTag, make sure you have comiled shared library follow these steps:
 
 ```
-cd apriltags_ros/software/apriltags-cpp
+cd tb3_aprilTag/software/apriltags-cpp
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
@@ -67,7 +67,7 @@ rosrun tags_sub tags_sub
 **terminal 2**
 
 ```bash=
-cd ~/rmp220-segway-nvision/
+cd ~/tb3_aprilTag/
 
 source environment.sh
 
