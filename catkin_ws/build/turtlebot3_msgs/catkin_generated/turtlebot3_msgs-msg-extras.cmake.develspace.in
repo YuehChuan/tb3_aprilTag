@@ -1,2 +1,0 @@
-set(turtlebot3_msgs_MESSAGE_FILES "/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/msg/SensorState.msg;/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/msg/MotorPower.msg;/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/msg/VersionInfo.msg;/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/msg/PanoramaImg.msg")
-set(turtlebot3_msgs_SERVICE_FILES "/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/srv/TakePanorama.srv;/home/schwarm/tb3_aprilTag/catkin_ws/src/turtlebot3_msgs/srv/SetFollowState.srv")
