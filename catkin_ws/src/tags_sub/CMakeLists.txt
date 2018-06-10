@@ -24,7 +24,6 @@ find_package(Boost REQUIRED COMPONENTS system signals regex date_time program_op
 include(FindPkgConfig)
 pkg_check_modules(Yaml REQUIRED yaml-cpp)
 
-find_package( Sophus REQUIRED )
 find_package(Eigen REQUIRED)
 
 
@@ -89,7 +88,7 @@ include_directories(
   ${EIGEN_INCLUDE_DIRS}
 )
 
-add_executable(tags_sub src/node_tags_sub.cpp src/tags_sub.cpp)
+add_executable(tags_sub src/tags_sub.cpp)
 
 add_dependencies(tags_sub tags_sub_generate_messages_cpp)
 

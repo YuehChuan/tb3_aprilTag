@@ -11,19 +11,15 @@
 //TF
 #include <tf/transform_broadcaster.h>
 
-//use sophus for transformation
-#include "sophus/so3.h"
-#include "sophus/se3.h"
-namespace tags_sub
-{
 
-TSNode::TSNode(const ros::NodeHandle& nh, const ros::NodeHandle& nh_private) :nh_(nh), nh_private_(nh_private), cam1_initialize(false)
-{
-    cam1_pose_sub_ = nh_.subscribe("/apriltags/detections", 10, &TSNode::tags_sub1, this);
 
+
+tags_sub::tags_sub()
+{
+    cam_pose_sub_ = nh_.subscribe("/apriltags/detections", 10, &tags_sub::tags_sub_callback, this);
 }
 
-TSNode::~TSNode()
+tags_sub::~tags_sub()
 {
 
 
@@ -31,57 +27,49 @@ TSNode::~TSNode()
 
 
 
-void TSNode::tags_sub1(const rapyuta_msgs::AprilTagDetections::ConstPtr& msg)
+void tags_sub::tags_sub_callback(const rapyuta_msgs::AprilTagDetections::ConstPtr& msg)
 {
-    if( (msg->detections.empty()) == false )//detection got value
+    if( (msg->detections.empty()) == false )//detection got value this is important check or you got segmental fault
     {
+    
+     static tf::TransformBroadcaster br;
+     tf::Transform transform;
+
+     //set aprilTag tf translation, rotation  see from camera  (you stand on camera see apriltag)
+    transform.setOrigin(tf::Vector3(msg->detections[0].pose.position.x,msg->detections[0].pose.position.y,msg->detections[0].pose.position.z) );
+    transform.setRotation(tf::Quaternion(msg->detections[0].pose.orientation.x, msg->detections[0].pose.orientation.y, msg->detections[0].pose.orientation.z, msg->detections[0].pose.orientation.w) );
 
 
-  static tf::TransformBroadcaster br;
-  static tf::TransformBroadcaster br_static_cam1;
-  tf::Transform transform;
-  transform.setOrigin(tf::Vector3(msg->detections[0].pose.position.x,msg->detections[0].pose.position.y,msg->detections[0].pose.position.z) );
-  transform.setRotation(tf::Quaternion(msg->detections[0].pose.orientation.x, msg->detections[0].pose.orientation.y, msg->detections[0].pose.orientation.z, msg->detections[0].pose.orientation.w) );
+    ROS_INFO("Get aprilTag! Habonbon ");
 
 
-
-
-
-  //broadcast transform
-  //inverse transform
-  tf::Transform InvTransform_cam1;
-  static tf::Transform static_pose_cam1;
-  InvTransform_cam1 = transform.inverse();
-
-  if(cam1_initialize == false)//next subscriber come change the pose_cam1 value, and next time static frame no value
-  {
-  static_pose_cam1 = InvTransform_cam1;
-  cam1_initialize = true;
-  ROS_INFO("cam1_initialize =%d ",cam1_initialize);
-
-  }
-  br.sendTransform(tf::StampedTransform(InvTransform_cam1, ros::Time::now(), "map", "camera1"));
-  br_static_cam1.sendTransform(tf::StampedTransform(static_pose_cam1, ros::Time::now(), "map", "cam1_static"));
-
-
-    }
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "camera", "apriltag"));
+   }
 
 }
 
 
 //get and set cam1 pose
-void TSNode::setInitPose_cam1(const Eigen::Matrix4d & pose, double time)
+void tags_sub::setInitPose_cam1(const Eigen::Matrix4d & pose, double time)
 {
   cam1_initialize_pose = pose;
   cam1_initialize_time_ = time;
 
 }
 
-Eigen::Matrix4d TSNode::getInitPose_cam1()
+Eigen::Matrix4d tags_sub::getInitPose_cam1()
 {
   return cam1_initialize_pose;
 }
 
 
+int main(int argc, char* argv[])
+{
+  ros::init(argc, argv, "node_tags_sub_node");
 
-}//end name space
+  tags_sub node_tags_sub_node;
+
+  ros::spin();
+
+  return 0;
+}

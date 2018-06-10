@@ -24,17 +24,16 @@
 #include<vector>
 #include <tf/transform_broadcaster.h>
 
-namespace tags_sub
-{
 
-class TSNode
+
+class tags_sub
 {
     private:
        bool cam1_initialize;
        ros::NodeHandle nh_;
        ros::NodeHandle nh_private_;
        ros::Publisher frame_pub_;
-       ros::Subscriber cam1_pose_sub_;
+       ros::Subscriber cam_pose_sub_;
 
 
        //initial
@@ -43,11 +42,10 @@ class TSNode
        double cam1_initialize_time_;//record the initialize pose time
 
     public:
-       TSNode(const ros::NodeHandle& nh, const ros::NodeHandle& nh_private);
-       TSNode() : TSNode( ros::NodeHandle(), ros::NodeHandle("~") ){}
-       ~TSNode();
-
-       void tags_sub1(const rapyuta_msgs::AprilTagDetections::ConstPtr& msg);
+       tags_sub();
+       
+       ~tags_sub();
+       void tags_sub_callback(const rapyuta_msgs::AprilTagDetections::ConstPtr& msg);
 
 
        //set and get the pose
@@ -57,6 +55,5 @@ class TSNode
 
 };//end of class
 
-}//tags_sub namespace
 
 #endif /*TAGS_SUB_H_*/
