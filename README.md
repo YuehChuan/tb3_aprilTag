@@ -2,7 +2,7 @@
 
 This is the main software repository for the turtlebot3 simulation.
 
-- For extensive technical documentation, please refer to [aprilTag](https://drive.google.com/file/d/0BwY-lpO6tzxHaTdTckZuaFFEQmM/view)
+- For extensive technical documentation, please refer to [aprilTag]([https://drive.google.com/file/d/0BwY-lpO6tzxHaTdTckZuaFFEQmM/view](https://drive.google.com/file/d/0BzZv7PclwK_sWHhMNUphUzJHeVE/view?usp=sharing&resourcekey=0--pUq1L8IgLyxMUeDfVAY_w))
 
 
 [![tb3_gazebo](https://github.com/YuehChuan/tb3_aprilTag/blob/master/misc/tb3_gazebo.png)](https://turtlebot3.readthedocs.io/en/latest/simulation.html)
